@@ -8,10 +8,10 @@
 </head>
 <body>
 <h2>get address IP</h2>
-<?php
-    $ipaddress = getenv("REMOTE_ADDR") ;
-    Echo "Your IP Address is " . $ipaddress;
-?>
+    <?php
+        include 'apiGeoLocation.php';
+        include 'xmlMeteo.php';
+    ?>
 </body>
 </html>
 
