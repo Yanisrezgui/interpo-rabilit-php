@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE previsions SYSTEM './meteo.dtd'>
 <previsions>
   <request_state>200</request_state>
   <source>internal:GFS:1</source>
   <message>OK</message>
-  <request_time>0.0096838474273682</request_time>
+  <request_time>0.0083279609680176</request_time>
   <request_key>4deb4148245633f6e80aedd723f016d3</request_key>
   <model_run>13</model_run>
   <echeance hour="3" timestamp="2023-02-13 16:00:00 UTC">
