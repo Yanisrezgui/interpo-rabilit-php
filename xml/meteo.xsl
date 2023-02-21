@@ -13,7 +13,17 @@
         </html>
     </xsl:template>
 
-    <xsl:template match="previsions">
-        <xsl:apply-templates />
+    <xsl:template match="echeance">
+        <p>
+            <xsl:apply-templates select="temperature"/>
+        </p>
     </xsl:template>
+
+    <xsl:template match="temperature">
+        <div>
+            Temperature : <xsl:value-of select="." />
+            <br />
+        </div>
+    </xsl:template>
+
 </xsl:stylesheet>

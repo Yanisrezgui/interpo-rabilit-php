@@ -12,11 +12,11 @@ if ($xmlMeteo->request_state == '200') {
         $dom->loadXML($xmlApi);
 
         // Ajouter le document formater dans le fichier meteo.xml
-        $myfile = fopen("meteo.xml", "w");
+        $myfile = fopen("./xml/meteo.xml", "w");
         fwrite($myfile, $dom->saveXML());
 
         #region Code pas bo
-        $xml = file_get_contents('meteo.xml');
+        $xml = file_get_contents('./xml/meteo.xml');
 
         // trouver la position de la deuxième ligne
         $pos = strpos($xml, '<previsions>') - 1;
@@ -24,7 +24,7 @@ if ($xmlMeteo->request_state == '200') {
         // ajouter la nouvelle ligne de texte
         $xml = substr_replace($xml, "\n<!DOCTYPE previsions SYSTEM './meteo.dtd'>", $pos, 0);
 
-        file_put_contents('meteo.xml', $xml);
+        file_put_contents('./xml/meteo.xml', $xml);
         #endregion Code pas bo
 
     } catch (Exception $e) {

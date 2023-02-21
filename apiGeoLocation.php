@@ -22,4 +22,8 @@ if ($apiGeoLocalisation->status != "fail") {
 }
 
 $coordinates = array("lat" => $lat, "lon" => $lon);
-return $coordinates;
+?>
+
+<script>
+    localStorage.setItem('coordinates', JSON.stringify(<?php echo json_encode($coordinates); ?>));
+</script>
