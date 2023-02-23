@@ -16,18 +16,20 @@
     <div id="search-bar">
         <div class="wrap">
             <div class="search">
-                <input type="text" class="searchTerm" placeholder="Rechecher une adresse">
-                <button type="submit" class="searchButton">
+                <input id="search-text" type="text" class="searchTerm" placeholder="Rechecher une adresse">
+                <button id="search-button" type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
                 </button>
             </div>
         </div>
-        </div>
+    </div>
     <?php require_once('./xmlLoadingPage.php') ?>
 
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
+
+<script type="text/javascript" src="./search.js"></script>
 <script type="text/javascript" src="./map.js"></script>
 </body>
 </html>
