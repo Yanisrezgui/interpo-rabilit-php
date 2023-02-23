@@ -1,5 +1,6 @@
 <?php
 include 'apiGeoLocation.php';
+include 'apiBikes.php';
 include 'xmlMeteo.php';
 
 //Chargement du source XML
