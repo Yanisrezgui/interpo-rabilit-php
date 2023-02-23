@@ -1,7 +1,7 @@
 <?php
 include 'apiGeoLocation.php';
-include 'apiBikes.php';
 include 'xmlMeteo.php';
+include 'apiBikes.php';
 
 //Chargement du source XML
 $xml = new DOMDocument();

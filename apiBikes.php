@@ -1,30 +1,20 @@
 <?php
 try {
-    $bikeInformation = json_decode(file_get_contents("https://transport.data.gouv.fr/gbfs/nancy/station_information.json"));
-    $bikeStatus = json_decode(file_get_contents("https://transport.data.gouv.fr/gbfs/nancy/station_status.json"));
-    
-    $jsonArray = array();
-    foreach ($bikeStatus->data->stations as &$status) {
-        $stationId = $status->station_id;
-
-        //get bikes and docks available corresponding with stationId
-        foreach ($bikeInformation->data->stations as &$info) {
-            if ($info->station_id === $stationId) {
-                $dataStation = array(
-                    "address" => $info->address,
-                    "capacity" => $info->capacity,
-                    "lat" => $info->lat,
-                    "lon" => $info->lon,
-                    "name" => $info->name,
-                    "num_bikes_available" => $status->num_bikes_available,
-                    "num_docks_available" => $status->num_docks_available
-                );
-
-                array_push($jsonArray, $dataStation);
-            }
-        }
+   
+    $bike=json_decode(file_get_contents("https://api.jcdecaux.com/vls/v3/stations?apiKey=frifk0jbxfefqqniqez09tw4jvk37wyf823b5j1i&contract=nancy"));
+    $jsonArray=array();
+    foreach($bike as $bikes){
+        $dataStation = array(
+            "id" => $bikes->number,
+            "capacity" => $bikes->totalStands->capacity,
+            "lat" => $bikes->position->latitude,
+            "lon" => $bikes->position->longitude,
+            "name" => $bikes->name,
+            "address"=>$bikes->address,
+            "status"=>$bikes->status,
+        );
+        array_push($jsonArray, $dataStation);
     }
-    
     $myfile = fopen("./bikes.json", "w");
     fwrite($myfile, json_encode($jsonArray, JSON_PRETTY_PRINT));
 } catch (Exception $e) {

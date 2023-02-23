@@ -4,8 +4,8 @@ let clientMarker = undefined;
 
 const userIcon = L.icon({
     iconUrl: './images/user.png',
-    iconSize:     [25, 25], // size of the icon
-    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    iconSize: [25, 25], // size of the icon
+    iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
 })
 
 const bikeIcon = new L.Icon({
@@ -35,27 +35,23 @@ const changeView = () => {
     map.setView([coordinates.lat, coordinates.lon]).update();
 }
 
-async function apiBike () {
+async function apiBike() {
     let data = await fetch("./bikes.json")
-    .then((response) => response.json())
-    .catch((error) => {
-        console.error('Error:', error);
-    })
-    
+        .then((response) => response.json())
+        .catch((error) => {
+            console.error('Error:', error);
+        })
+
     return data;
 }
 
 const showBikes = async () => {
     let data = await apiBike();
     data.forEach(element => {
-        let bikeMarker = L.marker([element.lat, element.lon], {icon: bikeIcon}).addTo(map);
+        let bikeMarker = L.marker([element.lat, element.lon], { icon: bikeIcon }).addTo(map);
         bikeMarker.bindPopup(
             "<p>Adresse:"
             + element.address
-            + "</p><p>Nombres de places disponible:"
-            + element.num_docks_available 
-            + "</p><p>Nombres de vélos disponible:"
-            + element.num_bikes_available
             + "</p><p>Capacité max:"
             + element.capacity
             + "</p>"
@@ -65,8 +61,10 @@ const showBikes = async () => {
 
 document.getElementById("search-button").addEventListener("click", async () => {
     const address = await addressLocation(text.value);
-    const coordinatesAPI = {"lat": address.features[0].geometry.coordinates[1], 
-                            "lon": address.features[0].geometry.coordinates[0]}
+    const coordinatesAPI = {
+        "lat": address.features[0].geometry.coordinates[1],
+        "lon": address.features[0].geometry.coordinates[0]
+    }
 
     localStorage.setItem('coordinates', JSON.stringify(coordinatesAPI));
     changeView();
@@ -81,7 +79,7 @@ addEventListener("DOMContentLoaded", () => {
         maxZoom: 19
     }).addTo(map);
 
-    clientMarker = L.marker([coordinates.lat, coordinates.lon], {icon: userIcon}).addTo(map);
+    clientMarker = L.marker([coordinates.lat, coordinates.lon], { icon: userIcon }).addTo(map);
 
     showBikes();
 })
