@@ -20,6 +20,7 @@
                     <i class="fa fa-search"></i>
                 </button>
             </div>
+            <div id="air-quality"></div>
         </div>
     </div>
     <?php require_once('./xmlLoadingPage.php') ?>

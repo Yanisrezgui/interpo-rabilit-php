@@ -1,10 +1,9 @@
 <?php
 try {
-   
     $bikes = json_decode(file_get_contents("https://api.jcdecaux.com/vls/v3/stations?apiKey=frifk0jbxfefqqniqez09tw4jvk37wyf823b5j1i&contract=nancy"));
     
     $jsonArray = array();
-    foreach($bikes as $bike){
+    foreach($bikes as &$bike){
         $dataStation = array(
             "address" => $bike->address,
             "lat" => $bike->position->latitude,

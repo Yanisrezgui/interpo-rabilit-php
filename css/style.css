@@ -83,3 +83,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+#air-quality {
+  text-align: center;
+  background-color: #ff9a4e;
+  border-radius: 5px;
+}

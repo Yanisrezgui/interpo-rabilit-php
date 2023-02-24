@@ -45,6 +45,16 @@ async function apiBike() {
     return data;
 }
 
+async function apiAirQuality() {
+    let data = await fetch("./airQuality.json")
+        .then((response) => response.json())
+        .catch((error) => {
+            console.error('Error:', error);
+        })
+
+    return data;
+}
+
 const showBikes = async () => {
     let data = await apiBike();
     data.forEach(element => {
@@ -62,6 +72,13 @@ const showBikes = async () => {
             + element.status
         )
     });
+}
+
+const showAirQuality = async () => {
+    let data = await apiAirQuality();
+    data.forEach(element => {
+        document.getElementById("air-quality").innerHTML += `Qualité de l'air : ` + element.lib_qual;
+    })
 }
 
 document.getElementById("search-button").addEventListener("click", async () => {
@@ -87,4 +104,5 @@ addEventListener("DOMContentLoaded", () => {
     clientMarker = L.marker([coordinates.lat, coordinates.lon], { icon: userIcon }).addTo(map);
 
     showBikes();
+    showAirQuality();
 })
