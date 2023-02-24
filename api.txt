@@ -1,0 +1,4 @@
+API géolocalisation : http://ip-api.com/json/'ipClient'?fields=status,country,city,lat,lon,query
+API géolocalisation IUT Nancy : https://api-adresse.data.gouv.fr/search/?q=Boulevard%20Charlemagne%2054000%20Nancy
+API vélos de Nancy : https://api.jcdecaux.com/vls/v3/stations?apiKey=frifk0jbxfefqqniqez09tw4jvk37wyf823b5j1i&contract=nancy 
+API météo : https://www.infoclimat.fr/public-api/gfs/xml?_ll='lat','lon'&_auth=ARsDFFIsBCZRfFtsD3lSe1Q8ADUPeVRzBHgFZgtuAH1UMQNgUTNcPlU5VClSfVZkUn8AYVxmVW0Eb1I2WylSLgFgA25SNwRuUT1bPw83UnlUeAB9DzFUcwR4BWMLYwBhVCkDb1EzXCBVOFQoUmNWZlJnAH9cfFVsBGRSPVs1UjEBZwNkUjIEYVE6WyYPIFJjVGUAZg9mVD4EbwVhCzMAMFQzA2JRMlw5VThUKFJiVmtSZQBpXGtVbwRlUjVbKVIuARsDFFIsBCZRfFtsD3lSe1QyAD4PZA%3D%3D&_c=19f3aa7d766b6ba91191c8be71dd1ab2
