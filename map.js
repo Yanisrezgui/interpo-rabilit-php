@@ -54,7 +54,12 @@ const showBikes = async () => {
             + element.address
             + "</p><p>Capacité max:"
             + element.capacity
-            + "</p>"
+            + "</p><p>vélos disponible:"
+            + element.bikes
+            + "</p><p>docks disponible:"
+            + element.stands
+            + "</p><p>statut:"
+            + element.status
         )
     });
 }
@@ -74,8 +79,8 @@ addEventListener("DOMContentLoaded", () => {
     let coordinates = JSON.parse(localStorage.getItem("coordinates"));
     map = L.map('map').setView([coordinates.lat, coordinates.lon], 15);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19
     }).addTo(map);
 
